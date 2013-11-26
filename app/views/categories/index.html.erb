@@ -1,0 +1,49 @@
+<h2> My Page </h2>
+
+<p>
+
+  the time now is .... <%= Time.now %>
+
+ </p>
+
+ <p>
+
+  Username is <strong><%= @username %></strong>and they are <%= @age %>
+  
+  </p>
+
+<ul class="category-list">
+<!--
+<li>Design</li>
+<li>Rails</li>
+<li>Javascript</li>
+<-->
+<!-- loop over categories -->
+
+<!-- there is no = sign here -->
+
+
+<!-- there is no = sign here -->
+<% @categories.each do |category| %>
+ <li>
+ <div class="details">
+ <%= link_to category.name, category_path(category) %>
+ </div>
+ <div class="actions">
+   <%= link_to "Edit" , edit_category_path(category),
+          class: "edit" %>
+
+          <%= link_to "Delete", category_path(category), 
+             method: :delete, class: "delete", confirm: "Are you sure you want to delete this category?" %>
+    </div> 
+ </li>
+<% end %>
+</ul>
+
+
+<a href="/categories/new" class="button">New Category 1</a>
+</br>
+</br>
+<!-- link is more flexible -->
+
+<%= link_to "New Category", new_category_path, class: "button" %>
