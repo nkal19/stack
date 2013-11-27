@@ -54,12 +54,12 @@ class LinksController < ApplicationController
 end
 #to stop people hacking our site, only allow from form
   def link_params
-   params.require(:link).permit(:name, :description, :url)
+   params.require(:link).permit(:name, :description, :url, :is_recommended)
   end
 
   def get_category
-  	#because we are not in teh categories controller
-  	# we need to find ID of teh category
+  	#because we are not in the categories controller
+  	# we need to find ID of the category
   	# using the /categories/:category_id/links/new
   	@category = Category.find(params[:category_id])
   end
